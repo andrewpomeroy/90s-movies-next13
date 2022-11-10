@@ -6,13 +6,8 @@ import { useSelectedLayoutSegments } from 'next/navigation';
 
 const LetterNav = ({ letters }: { letters: string[] }) => {
   const [selectedLayoutSegments] = useSelectedLayoutSegments();
-
   return (
-    <div className="flex items-center space-x-4">
-      <TabNavItem href="/layouts" isActive={!selectedLayoutSegments}>
-        Home
-      </TabNavItem>
-
+    <div className="flex flex-wrap items-center gap-2 font-mono">
       {letters.map((item) => (
         <TabNavItem
           key={item}

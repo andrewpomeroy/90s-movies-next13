@@ -5,6 +5,8 @@ import {
 } from '#/lib/getCategories';
 import { SkeletonCard } from '#/ui/SkeletonCard';
 import allLetters from '../../lib/constants/allLetters';
+import getMovies from '../../lib/getMovies';
+import getMoviesByLetter from '../../lib/getMoviesByLetter';
 
 // const fetchCategory = async (
 //   categorySlug: string | undefined,
@@ -19,11 +21,16 @@ import allLetters from '../../lib/constants/allLetters';
 
 export default async function Page({ params }: PageProps) {
   // const category = await fetchCategory(params.letter);
+  const movies = await getMoviesByLetter(params.letter);
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-3 gap-6 text-white">
-        Letter is {params.letter}
+      <div className="flex flex-col gap-3 text-white">
+        {movies.map((movie) => (
+          <div key={movie.id} className="text-xl">
+            <span className="font-bold">{movie.title}</span> ({movie.year})
+          </div>
+        ))}
       </div>
     </div>
   );

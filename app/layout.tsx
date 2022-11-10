@@ -15,8 +15,8 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body className="overflow-y-scroll bg-gray-900">
-        <div className="grid grid-cols-[1fr,minmax(auto,240px),min(800px,100%),1fr] gap-x-8 py-8">
-          <div className="col-span-2 col-start-2">
+        <div className="flex flex-row justify-center p-8">
+          <div className="max-w-3xl flex-grow">
             <div className="rounded-xl border border-gray-800 bg-black p-8">
               <LetterNav letters={allLetters} />
               <div className="mt-5">{children}</div>
